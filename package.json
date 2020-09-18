@@ -1,7 +1,7 @@
 {
-  "name": "1-Passport-Example",
+  "name": "job-finder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Job finder application",
   "main": "server.js",
   "scripts": {
     "test": "npm run lint",
