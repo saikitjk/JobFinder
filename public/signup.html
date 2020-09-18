@@ -1,45 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <title>Passport Authentication</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
-</head>
-
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
-        <form class="signup">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
-        </form>
-        <br />
-        <p>Or log in <a href="/login">here</a></p>
-      </div>
-    </div>
+  <head>
+    <title>Job Finder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Semantic UI frame work-->
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+    <script src="semantic/dist/semantic.min.js"></script>
+    <link href="stylesheets/style.css" rel="stylesheet">
+  </head>
+<div>
+  <div>
+    <h2>Sign Up Form</h2>
   </div>
+  <form class="ui form">
+    <div class="field">
+      <label>First Name</label>
+      <input type="text" name="first-name" placeholder="First Name">
+    </div>
+    <div class="field">
+      <label>Last Name</label>
+      <input type="text" name="last-name" placeholder="Last Name">
+    </div>
+    <div class="field">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="email-input" placeholder="Email" />
+    </div>
+    <div class="field">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="password-input" placeholder="Password" />
+    </div>
+    <div class="field">
+      <label for="exampleInputPassword1">Confirm Password</label>
+      <input type="password" class="form-control" id="password-input" placeholder="Confirm Password" />
+    </div>
+    <div class="field">
+      <div class="ui checkbox">
+        <input type="checkbox" tabindex="0" class="hidden">
+        <label>I agree to the Terms and Conditions</label>
+      </div>
+    </div>
+    <button class="ui button" type="submit">Submit</button>
+  </form> 
+  <br />
+  <p>Or login <a href="/JobFinder/public/login.html">here</a></p>
+</div>
+
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/signup.js"></script>
