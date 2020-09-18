@@ -7,8 +7,8 @@ use jobfinder_db;
 
 create table user(
     id integer auto_increment NOT NULL,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
+    firstname VARCHAR(50),
+    lastname VARCHAR(50),
     email VARCHAR(100),
     password VARCHAR(20),
     PRIMARY KEY(id)
