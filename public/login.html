@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>Job Finder</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--Semantic UI frame work-->
@@ -15,25 +15,25 @@
 </head>
 
 <body>
+  <div>
+  <div class="ui header">
+    <h1>Job Finder</h1>
+  </div>
   <form class="ui form">
     <div class="field">
-      <label>First Name</label>
-      <input type="text" name="first-name" placeholder="First Name">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="email-input" placeholder="Email" />
     </div>
     <div class="field">
-      <label>Last Name</label>
-      <input type="text" name="last-name" placeholder="Last Name">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="password-input" placeholder="Password" />
     </div>
-    <div class="field">
-      <div class="ui checkbox">
-        <input type="checkbox" tabindex="0" class="hidden">
-        <label>I agree to the Terms and Conditions</label>
-      </div>
-    </div>
-
-    <button class="ui button" type="submit">Submit</button>
+  
+    <button class="ui button" type="submit">login</button>
   </form>
-
+  <br />
+  <p>Or sign up <a href="/JobFinder/public/signup.html">here</a></p>
+</div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/login.js"></script>
