@@ -5,7 +5,7 @@ CREATE DATABASE jobfinder_db;
 
 use jobfinder_db;
 
-create table user(
+create table User(
     id integer auto_increment NOT NULL,
     firstname VARCHAR(50),
     lastname VARCHAR(50),
@@ -15,7 +15,7 @@ create table user(
     -- time will be created at sequelize
 );
 
-CREATE TABLE jobs(
+CREATE TABLE Jobs(
     id  integer auto_increment NOT NULL,
     role VARCHAR(30) NOT NULL,
     description VARCHAR(1000) NOT NULL,
@@ -24,9 +24,9 @@ CREATE TABLE jobs(
     jobtype VARCHAR(50) NOT NULL,
     salary DECIMAL,
     joblocation VARCHAR(50) NOT NULL,
-    contactinfo VARCHAR(200) NOT NULL,
+    contact (70) NOT NULL,
     --date posted will be created at sequelize
-    userid INTEGER,
+    userId INTEGER,
     CONSTRAINT fk_users FOREIGN KEY(userid)
     REFERENCES user(id)
         ON UPDATE CASCADE
