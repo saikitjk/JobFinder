@@ -12,7 +12,7 @@
   "plugins": ["prettier"],
   "rules": {
     "array-callback-return": "error",
-    "camelcase": "error",
+    "camelcase": "warn",
     "curly": "error",
     "dot-notation": "error",
     "eqeqeq": "error",
