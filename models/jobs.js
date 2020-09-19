@@ -2,14 +2,8 @@
 module.exports = function(sequelize, DataTypes) {
   const Jobs = sequelize.define("Jobs", {
     id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        len: [1, 6],
-        isNumeric: {
-          msg: "Id should contain only numbers"
-        }
-      }
+      type: DataTypes.UUID,
+      defaultValue: Sequelize.UUIDV4 // Or Sequelize.UUIDV1
     },
     role: {
       type: DataTypes.STRING,
