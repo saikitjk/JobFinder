@@ -15,6 +15,7 @@ create table User(
     -- time will be created at sequelize
 );
 
+
 CREATE TABLE Jobs(
     id  integer auto_increment NOT NULL,
     role VARCHAR(30) NOT NULL,
@@ -24,10 +25,11 @@ CREATE TABLE Jobs(
     jobtype VARCHAR(50) NOT NULL,
     salary DECIMAL,
     joblocation VARCHAR(50) NOT NULL,
-    contact (70) NOT NULL,
+    contact VARCHAR(70) NOT NULL,
     --date posted will be created at sequelize
     userId INTEGER,
-    CONSTRAINT fk_users FOREIGN KEY(userid)
+    -- user in jobs table
+    CONSTRAINT fk_users FOREIGN KEY(userId)
     REFERENCES user(id)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
