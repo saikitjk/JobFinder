@@ -1,6 +1,16 @@
 // Creating our Jobs model
 module.exports = function(sequelize, DataTypes) {
   const Jobs = sequelize.define("Jobs", {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1, 6],
+        isNumeric: {
+          msg: "Id should contain only numbers"
+        }
+      }
+    },
     role: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -54,7 +64,9 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true
+        isEmail: {
+          msg: "Please enter a valid address"
+        }
       }
     },
     userId: {
