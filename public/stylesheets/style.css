@@ -1,7 +1,7 @@
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-.field {
- width: 100%;
- height: auto;
+.container {
+  width: 100%;
+  height: auto;
 }
 body {
   margin: 0;
@@ -10,13 +10,14 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   background-size: cover;
+  
 }
-.box {
+.container {
   width: 600px;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  left: 60%;
+  transform: translate(-50%, -50%);
   color: white;
 }
 .box h1 {
@@ -32,7 +33,6 @@ body {
   font-size: 20px;
   padding: 8px 0;
   margin: 8px 0;
-
 }
 .textbox input {
   border: none;
