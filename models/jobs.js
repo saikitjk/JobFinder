@@ -1,9 +1,11 @@
 // Creating our Jobs model
+const Sequelize = require("sequelize");
 module.exports = function(sequelize, DataTypes) {
   const Jobs = sequelize.define("Jobs", {
     id: {
+      primaryKey: true,
       type: DataTypes.UUID,
-      defaultValue: Sequelize.UUIDV4 // Or Sequelize.UUIDV1
+      defaultValue: Sequelize.UUIDV4, // Or Sequelize.UUIDV1
     },
     role: {
       type: DataTypes.STRING,
@@ -11,37 +13,37 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1, 30],
         isAlpha: {
-          msg: "Name should only contain letters"
-        }
-      }
+          msg: "Name should only contain letters",
+        },
+      },
     },
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [1, 1000]
-      }
+        len: [1, 1000],
+      },
     },
     technology: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        is: /^[a-z]+$/i
-      }
+        is: /^[a-z]+$/i,
+      },
     },
     company: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     jobtype: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isIn: [["Full-Time", "Part-Time"]]
-      }
+        isIn: [["Full-Time", "Part-Time"]],
+      },
     },
     salary: {
-      type: DataTypes.DOUBLE
+      type: DataTypes.DOUBLE,
     },
     joblocation: {
       type: DataTypes.STRING,
@@ -49,9 +51,9 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1, 30],
         isAlpha: {
-          msg: "Name should only contain letters"
-        }
-      }
+          msg: "Name should only contain letters",
+        },
+      },
     },
     contact: {
       type: DataTypes.STRING,
@@ -59,17 +61,17 @@ module.exports = function(sequelize, DataTypes) {
       unique: true,
       validate: {
         isEmail: {
-          msg: "Please enter a valid address"
-        }
-      }
+          msg: "Please enter a valid address",
+        },
+      },
     },
     userId: {
       type: DataTypes.INTEGER,
       references: {
         model: "User", // 'User' refers to table name
-        key: "id" // 'id' refers to column name in User table
-      }
-    }
+        key: "id", // 'id' refers to column name in User table
+      },
+    },
   });
 
   return Jobs;
