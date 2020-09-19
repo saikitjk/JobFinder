@@ -5,41 +5,42 @@
   <title>Job Finder</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--Semantic UI frame work-->
-  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
-  <script src="semantic/dist/semantic.min.js"></script>
+  <!--bootstrap frame work-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
-<body>
-  <div class="ui centered grid">
-    <div class="textbox">
-      <h1>Job Finder</h1>
-    <div class="login-box">
-      <div class="field">
-        <form class="ui form">
-          <div class="textbox">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email" />
-          </div>
-          <div class="textbox">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password" />
-          </div>
-          <div class="btn">
-            <button class="ui button" type="submit">Forget Password</button>
-            <button class="ui button" type="submit">login</button>
-          </div>
 
-        </form>
-        <br />
-        <h3>Or sign up <a href="/JobFinder/public/signup.html">here</a></h3>
-      </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
+<body>
+  <div>
+    <h2>login</h2>
+    <form class="form-inline" action="/action_page.php">
+      <div>
+        <label for="email" class="mr-sm-2">Email address:</label>
+        <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Enter email" id="email">
+        <label for="pwd" class="mr-sm-2">Password:</label>
+        <input type="password" class="form-control mb-2 mr-sm-2" placeholder="Enter password" id="pwd">
+        <div class="form-check mb-2 mr-sm-2">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"> Remember me
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </form>
+    <h4>Or sign up <a href="/public/signup.html">here</a></h4>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
 
 </body>
 
