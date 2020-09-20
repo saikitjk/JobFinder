@@ -1,4 +1,4 @@
-@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+/* @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 .container {
   width: 100%;
   height: auto;
@@ -52,4 +52,9 @@ body {
   font-size: 18px;
   cursor: pointer;
   margin: 12px 0;
+} */
+
+form.signup,
+form.login {
+  margin-top: 50px;
 }
