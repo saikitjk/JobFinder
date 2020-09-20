@@ -1,12 +1,12 @@
 {
-  "name": "1-Passport-Example",
+  "name": "job-finder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Job finder application",
   "main": "server.js",
   "scripts": {
     "test": "npm run lint",
     "start": "node server.js",
-    "lint": "eslint --quiet .",
+    "lint": "eslint **/*.js --quiet",
     "fix": "eslint --fix .",
     "watch": "nodemon server.js"
   },
@@ -16,11 +16,12 @@
   "dependencies": {
     "bcryptjs": "2.4.3",
     "express": "^4.17.0",
+    "express-handlebars": "^5.1.0",
     "express-session": "^1.16.1",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.22.3"
   },
   "devDependencies": {
     "chai": "^4.1.2",
