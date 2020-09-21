@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "pratyushakamal",
+    "password": "asdf@123",
     "database": "jobfinder_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
