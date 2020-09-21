@@ -1,3 +1,9 @@
+
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
 /* @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 .container {
   width: 100%;
@@ -54,7 +60,3 @@ body {
   margin: 12px 0;
 } */
 
-form.signup,
-form.login {
-  margin-top: 50px;
-}
