@@ -1,53 +1,58 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable prefer-arrow-callback */
 const db = require("../models");
 const { Op } = require("sequelize");
 
 module.exports = function(app) {
+  
   // GET route for getting all of the jobs
   app.get("/api/jobs/", function(req, res) {
     db.Jobs.findAll({}).then(function(jobsData) {
-      console.log(jobsData);
       res.json(jobsData);
     });
   });
 
-  // select * from Jobs where
-  // (role = rolelike% or complete variable) OR (technology = techlike% or complete variable) OR
-  // (joblocation = joblocationlike%) order by created_At DESC
-
+  // GET route for getting search results for specific keyword
   app.get("/api/jobs/:userSearch", function(req, res) {
     const searchValue = req.params.userSearch;
+    console.log("Search Value : "+searchValue);
     db.Jobs.findAll({
-      where: {
-        searchValue: {
-          [Op.or]: [
-            {
-              role: {
-                [Op.like]: `%${searchValue}%`
-              }
-            },
-            {
-              technology: {
-                [Op.like]: `%${searchValue}%`
-              }
-            },
-            {
-              company: {
-                [Op.like]: `%${searchValue}%`
-              }
-            },
-            {
-              joblocation: {
-                [Op.like]: `%${searchValue}%`
-              }
+      where: { 
+        [Op.or]: [
+          {
+            //To fetch the Jobs searched by Role
+            role: {
+              [Op.like]: `%${searchValue}%`
             }
-          ]
-        }
+          },
+          {
+            // To fetch Jobs searched by Technology
+            technology: {
+              [Op.like]: `%${searchValue}%`
+            }
+          },
+          {
+            // To fetch Jobs searched by Company
+            company: {
+              [Op.like]: `%${searchValue}%`
+            }
+          },
+          {
+            // To fetch Jobs searched by job location
+            joblocation: {
+              [Op.like]: `%${searchValue}%`
+            }
+          }
+        ]
+        
       }
-    }).then(function(jobsData) {
-      console.log(jobsData);
-      res.json(jobsData);
-    });
+    })
+      .then(function(jobsData) {
+        res.json(jobsData);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // POST route for saving a new job
@@ -57,15 +62,38 @@ module.exports = function(app) {
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
 
+    const {
+      role,
+      description,
+      technology,
+      company,
+      jobtype,
+      salary,
+      joblocation,
+      contact
+    } = req.body;
+
+    // Make lowercase
+    role = role.toLowerCase();
+
+    // Make lowercase and remove space after comma
+    technology = technology.toLowerCase().replace(/,[ ]+/g, ",");
+
+    // Make lowercase
+    company = company.toLowerCase();
+
+    // Make lowercase and remove space after comma
+    joblocation = joblocation.toLowerCase().replace(/,[ ]+/g, ",");
+
     db.Jobs.create({
-      role: req.body.role,
-      description: req.body.description,
-      technology: req.body.technology,
-      company: req.body.company,
-      jobtype: req.body.jobtype,
-      salary: req.body.salary,
-      joblocation: req.body.joblocation,
-      contact: req.body.contact
+      role: role,
+      description: description,
+      technology: technology,
+      company: company,
+      jobtype: jobtype,
+      salary: salary,
+      joblocation: joblocation,
+      contact: contact
       //Add userId foreign key here
     }).then(function(dbJob) {
       // We have access to the new todo as an argument inside of the callback function
