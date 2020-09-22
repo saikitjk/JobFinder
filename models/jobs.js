@@ -39,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isIn: [["Full-Time", "Part-Time"]]
+        isIn: [["full-time", "part-time", "contract"]]
       }
     },
     salary: {
@@ -58,7 +58,6 @@ module.exports = function(sequelize, DataTypes) {
     contact: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         isEmail: {
           msg: "Please enter a valid address"
@@ -71,8 +70,11 @@ module.exports = function(sequelize, DataTypes) {
         model: "User", // 'User' refers to table name
         key: "id" // 'id' refers to column name in User table
       }
-    }
+    },
+    createdAt: Sequelize.DATE,
+    updatedAt: Sequelize.DATE
   });
-
+  // Syncs with DB
+  Jobs.sync();
   return Jobs;
 };
