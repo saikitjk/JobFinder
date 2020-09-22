@@ -70,32 +70,3 @@ body {
 
   
 }
-/* Extra small devices (phones, 600px and down) */
-@media print, screen and (min-width: 47em) and (max-width: 60em) {
-  body {
-    background-size: 100%;
-    height: 00%;
-  }
-}
-
-@media print, screen and (min-width: 60em) {
-  body, .container {
-  }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 600px) {
-  .form-inline {
-  }
-}
-
-
-<div class="float-right">
-    <button type="button" class="btn btn-secondary" href="/public/login.html">Logout</button>
-  </div>
-  <div class="float-right">
-    <button type="button" class="btn btn-secondary" href="/public/login.html">Logout</button>
-  </div>
-  <div class="float-right">
-    <button type="button" class="btn btn-secondary" href="/public/login.html">Logout</button>
-  </div>
