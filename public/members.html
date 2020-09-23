@@ -10,23 +10,33 @@
 </head>
 
 <body>
+  <!--header with logout button-->
   <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-    </div>
-  </div>
-</nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img class="logo" src="http://work-live-stay.dk/en/wp-content/uploads/sites/2/2017/01/Jobfinder-logo.png"
+          alt="logo">
       </div>
+      <a class="navbar-brand logout-btn" href="/logout">Logout</a>
+    </div>
+    </div>
+  </nav>
+  <!--search bar-->
+  <div class="container-1">
+    <h1>where</h1>
+    <h4>Jobs title,or company</h4>
+    <div class="search-box">
+      <input type="text" class="search-1" placeholder="What role">
+      <button type="button" class="search-btn">Find Jobs</button>
     </div>
   </div>
-
+  <div class="container">
+    <h1>what</h1>
+    <h4>city</h4>
+    <div class="search-box">
+      <input type="text" class="search" placeholder="Where">
+    </div>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
 
