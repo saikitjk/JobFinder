@@ -11,10 +11,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 30],
-        isAlpha: {
-          msg: "Name should only contain letters"
-        }
+        is: /^[a-z][a-z\s]*$/,
+        len: [1, 30]
+        // isAlpha: {
+        //   msg: "Name should only contain letters"
+        // }
       }
     },
     description: {
@@ -26,10 +27,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     technology: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        is: /^[a-z]+$/i
-      }
+      allowNull: false
+      // validate: {
+      //   is: /^[a-z]+$/i
+      // }
     },
     company: {
       type: DataTypes.STRING,
@@ -49,10 +50,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 30],
-        isAlpha: {
-          msg: "Name should only contain letters"
-        }
+        len: [1, 30]
+        // isAlpha: {
+        //   msg: "Name should only contain letters"
+        // }
       }
     },
     contact: {
