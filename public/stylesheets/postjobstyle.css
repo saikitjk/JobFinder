@@ -1,0 +1,23 @@
+.navbar{
+    border-bottom-style:solid !important ;
+    border-width:5px;
+    border-bottom-color:darkcyan !important;
+  }
+  .navbar .navbar-collapse {
+    /*positioning*/
+    text-align: right;
+  }
+  body {
+    background-color:#f2f2f2;
+    margin-bottom:100px;
+    /* background-image: url("images/bggray.jpg"); */
+  
+  }
+  
+  .footer{
+    border-top:thick solid;
+    border-width: 5px;
+    border-top-color: darkcyan !important;
+  }
+  
+  
