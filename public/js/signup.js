@@ -8,22 +8,31 @@ $(document).ready(() => {
   const confirmPasswodInput = $("input#confirmPassword-input");
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", (event) => {
+  signUpForm.on("submit", event => {
     event.preventDefault();
     const userData = {
       firstname: firstName.val().trim(),
       lastname: lastName.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
-      confirmPassword: confirmPasswodInput.val().trim(),
+      confirmPassword: confirmPasswodInput.val().trim()
     };
 
-    if (
-      !userData.firstname ||
-      !userData.lastname ||
-      !userData.email ||
-      !userData.password
-    ) {
+    if (!userData.firstname) {
+      confirm(" Firstname field cannot be blank.");
+      return;
+    }
+    if (!userData.lastname) {
+      confirm("Lastname field cannot be blank.");
+      return;
+    }
+    if (!userData.email) {
+      confirm(" Email field cannot be blank.");
+      return;
+    }
+
+    if (!userData.password) {
+      confirm(" Password field cannot be blank.");
       return;
     }
 
@@ -56,7 +65,7 @@ $(document).ready(() => {
       firstname: firstname,
       lastname: lastname,
       email: email,
-      password: password,
+      password: password
     })
       .then(() => {
         window.location.replace("/");
