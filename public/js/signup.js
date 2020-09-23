@@ -5,15 +5,17 @@ $(document).ready(() => {
   const lastName = $("input#lastname");
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
+  const confirmPasswodInput = $("input#confirmPassword-input");
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", event => {
+  signUpForm.on("submit", (event) => {
     event.preventDefault();
     const userData = {
       firstname: firstName.val().trim(),
       lastname: lastName.val().trim(),
       email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
+      confirmPassword: confirmPasswodInput.val().trim(),
     };
 
     if (
@@ -24,6 +26,16 @@ $(document).ready(() => {
     ) {
       return;
     }
+
+    if (!userData.confirmPassword) {
+      confirm("Confirm password field cannot be blank.");
+      return;
+    } else if (userData.password !== userData.confirmPassword) {
+      console.log("password unmatch!");
+      confirm("Password unmatch! Please confirm your password.");
+      return;
+    }
+
     // If we have an email and password, run the signUpUser function
     signUpUser(
       userData.firstname,
@@ -44,7 +56,7 @@ $(document).ready(() => {
       firstname: firstname,
       lastname: lastname,
       email: email,
-      password: password
+      password: password,
     })
       .then(() => {
         window.location.replace("/");
