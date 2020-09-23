@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable prettier/prettier */
 /* eslint-disable prefer-arrow-callback */
 const db = require("../models");
@@ -57,12 +58,10 @@ module.exports = function(app) {
 
   // POST route for saving a new job
   app.post("/api/postjob", function(req, res) {
-    console.log(req.body);
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property (req.body)
+    
+    console.log("Post Job: "+req.body);
 
-    const {
+    let {
       role,
       description,
       technology,
@@ -75,12 +74,10 @@ module.exports = function(app) {
 
     // Make lowercase
     role = role.toLowerCase();
-
     // Make lowercase and remove space after comma
     technology = technology.toLowerCase().replace(/,[ ]+/g, ",");
-
     // Make lowercase
-    company = company.toLowerCase();
+    company = company.toLowerCase().replace(/,[ ]+/g, ",");
 
     // Make lowercase and remove space after comma
     joblocation = joblocation.toLowerCase().replace(/,[ ]+/g, ",");
@@ -99,6 +96,9 @@ module.exports = function(app) {
       // We have access to the new todo as an argument inside of the callback function
       console.log("Job Inserted: " + dbJob);
       res.json(dbJob);
-    });
+    })
+      .catch(function(error) {
+        console.log(error);
+      });
   });
 };
