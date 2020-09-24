@@ -10,7 +10,7 @@ module.exports = function(app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id
+      id: req.user.id,
     });
   });
 
@@ -22,16 +22,25 @@ module.exports = function(app) {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     })
       .then(() => {
         res.redirect("/");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
-
+  // app.post(
+  //   "/api/signup",
+  //   passport.authenticate("local-signup", {
+  //     successRedirect: "/",
+  //   })
+  // function(req, res) {
+  //   console.log("this is user info: " + req.session.passport.dbUser);
+  //   res.redirect("/api/login/" + req.session.passport.dbUser);
+  // }
+  // );
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();
@@ -48,7 +57,7 @@ module.exports = function(app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
       });
     }
   });
