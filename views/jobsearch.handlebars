@@ -1,35 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="stylesheets/postjobstyle.css">
-  <title>job Search</title>
-</head>
-
-<body>
-  <!--header with logout button-->
-  <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
-
-    <!--Begin Container  -->
+<nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
 
     <span class="navbar-brand mb-0 h2 text-white">Job Finder</span>
 
 
-    <!-- Collapsable button -->
     <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -53,8 +27,6 @@
       </ul>
     </div>
 
-
-    <!-- End Nav bar -->
   </nav>
   <br><br>
 
@@ -78,13 +50,16 @@
   </div>
 
   <br><br>
-  <div class="row mr-2 ml-2" id="searchResult">
-<div class="col-md-1">
-      </div>
+  <div class="row mr-2 ml-2" id="jobs">
+    <div class="col-md-1">
+    </div>
+    
+    {{#each job}}
     <div class=" card shadow rounded col-sm-10 col-md-10 col-lg-8 bg-dark text-white greenborder" style="margin:auto;padding:auto;">
       <div class="card-body">
            <div class="row">
-          <h4 class="ml-3">{{role}}</h4> <p class= " ml-3"><span class="text-info">{{jobtype}}</span></p>
+          
+            <h4 class="ml-3">{{role}}</h4> <p class= " ml-3"><span class="text-info">{{jobtype}}</span></p>
            </div>
           <p><strong>{{company}}</strong></p> 
           
@@ -102,21 +77,19 @@
        
       </div>
     </div>
+    {{else}}
+      <p>No Jobs available</p>
+     {{/each}}
 
     <div class="col-sm-1 col-md-1">
-
     </div>
   </div>
   </div>
   </div>
 
   <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
-    <!--paragraph of footer-->
     <p>
        &copy; Job Finder
    </p>
  </footer>
-
-</body>
-
-</html>
+  <script src="/js/jobsearch.js"></script>

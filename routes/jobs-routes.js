@@ -92,10 +92,11 @@ module.exports = function(app) {
       joblocation: joblocation,
       contact: contact
       //Add userId foreign key here
+    // eslint-disable-next-line no-unused-vars
     }).then(function(dbJob) {
-      // We have access to the new todo as an argument inside of the callback function
-      console.log("Job Inserted: " + dbJob);
-      res.json(dbJob);
+      // console.log("Job Inserted: " + dbJob);
+      // res.json(dbJob);
+      res.redirect("/jobsearch");
     })
       .catch(function(error) {
         console.log(error);
