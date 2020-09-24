@@ -25,7 +25,8 @@ module.exports = function(app) {
       password: req.body.password
     })
       .then(() => {
-        res.redirect("/");
+        // res.redirect("/");
+        res.render("index");
       })
       .catch(err => {
         res.status(401).json(err);
