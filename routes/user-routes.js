@@ -18,29 +18,32 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
-    db.User.create({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      email: req.body.email,
-      password: req.body.password,
-    })
-      .then(() => {
-        res.redirect("/");
-      })
-      .catch((err) => {
-        res.status(401).json(err);
-      });
+    db.User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    }).then((dbUser) => {
+      if (dbUser) {
+        res.status(400).json("This email has already been taken.");
+        return;
+      }
+      if (!dbUser) {
+        db.User.create({
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
+          email: req.body.email,
+          password: req.body.password,
+        })
+          .then(() => {
+            res.redirect("/");
+          })
+          .catch((err) => {
+            res.status(401).json(err);
+          });
+      }
+    });
   });
-  // app.post(
-  //   "/api/signup",
-  //   passport.authenticate("local-signup", {
-  //     successRedirect: "/",
-  //   })
-  // function(req, res) {
-  //   console.log("this is user info: " + req.session.passport.dbUser);
-  //   res.redirect("/api/login/" + req.session.passport.dbUser);
-  // }
-  // );
+
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();

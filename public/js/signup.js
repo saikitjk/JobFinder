@@ -75,6 +75,7 @@ $(document).ready(() => {
   }
 
   function handleLoginErr(err) {
-    confirm("That email has already been used.");
+    $("#alert .msg").text(JSON.stringify(err.responseJSON));
+    $("#alert").fadeIn(500);
   }
 });
