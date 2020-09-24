@@ -29,6 +29,7 @@ app.set("view engine", "handlebars");
 require("./routes/html-routes.js")(app);
 require("./routes/user-routes.js")(app);
 require("./routes/jobs-routes.js")(app);
+//app.use("/jobs-routes", require("./routes/jobs-routes"));
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {

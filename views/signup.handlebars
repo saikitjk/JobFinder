@@ -1,0 +1,88 @@
+ <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1" >
+
+      <span class="navbar-brand mb-0 h2 text-white">Job Finder</span>
+      <!-- Collapsable button -->
+  <!-- End Nav bar -->
+</nav>
+
+<br>
+    <div class="container">
+      <div class="row ml-2 mr-2">
+        <div class = "card shadow rounded col-sm-11 col-md-12 col-lg-8 bg-dark text-white " style="margin:auto;padding:auto;">
+          <div class="card-body">
+          <h2>Sign Up Form</h2>
+          <form class="signup">
+            <div class="form-group">
+              <label for="firstName"  style="font-size:larger;">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                placeholder="First Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName"  style="font-size:larger;">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                placeholder="Last Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1"  style="font-size:larger;">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email-input"
+                placeholder="Email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1"  style="font-size:larger;">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password-input"
+                placeholder="Password"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputConfirmPassword"  style="font-size:larger;">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword-input"
+                placeholder="Confirm Password"
+              />
+            </div>
+            <div
+              style="display: none"
+              id="alert"
+              class="alert alert-danger"
+              role="alert"
+            >
+              <span
+                class="glyphicon glyphicon-exclamation-sign"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Error:</span> <span class="msg"></span>
+            </div>
+            <div class="text-center">
+            <button type="submit" class="btn btn-lg btn-info mb-3 mt-3">Sign Up</button>
+            </div>
+          </form>
+          <br />
+          <p  style="font-size:larger;">Or log in <a href="/">here</a></p>
+        </div>
+      </div>
+    </div>
+    </div>
+    <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
+      <!--paragraph of footer-->
+      <p>
+         &copy; Job Finder
+     </p>
+   </footer>
+    <script type="text/javascript" src="js/signup.js"></script>

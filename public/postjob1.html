@@ -33,7 +33,7 @@
             <ul class="navbar-nav ml-auto ">
                 <!-- Links of navbar -->
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/api/main">Job Search</a>
+                    <a class="nav-link text-white" href="/main">Job Search</a>
                 </li>
 
                 <li class="nav-item">
@@ -64,7 +64,7 @@
         <br>
         <p class="text-center" style="font-size:large;">Your contact email will be shared with registered users to apply to your Job</p>
         <br>
-        <form method="POST">
+        <form>
           <div class="input-group mb-3 row">
             <label for="title" class="col-sm-3" style="font-size:large;">Job Role</label>
             <input type="text" name="role" id="role" class="form-control col-sm-9 ml-2 rounded" placeholder="Front end developer, Software developer"
@@ -74,7 +74,7 @@
           <div class="input-group mb-3 row">
             <label for="description" class="col-sm-3" style="font-size:large;">Description</label>
             <textarea name="description" id="description" class="form-control col-sm-9 ml-2 rounded" rows="5" placeholder="Job Description here"
-            maxlength="100"></textarea>
+            maxlength="1000"></textarea>
           </div>
   
           <div class="input-group mb-3 row">
@@ -112,8 +112,9 @@
             <input type="email" name="contactemail" id="contactemail" class="form-control col-sm-9 ml-2 rounded" placeholder="Enter an email"
               required>
           </div>
+          
           <div class="text-center">
-            <button type="submit" value="postjob" class="btn btn-lg btn-info mb-3 mt-3">Submit</button>
+            <button type="submit" id="postjob" class="btn btn-lg btn-info mb-3 mt-3 post-job">Submit</button>
           </div>
           
         </form>

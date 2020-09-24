@@ -1,0 +1,136 @@
+<nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
+
+  <!--Begin Container  -->
+  <div class="container">
+
+    <span class="navbar-brand mb-0 h2 text-white">Job Finder</span>
+
+    <!-- Collapsable button -->
+    <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav" style="font-size:larger;">
+
+      <ul class="navbar-nav ml-auto ">
+        <!-- Links of navbar -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/jobsearch">Job Search</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/api/jobs">All jobs</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link text-white" href="/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- End Nav bar -->
+</nav>
+
+<br><br>
+
+
+<section id="postjob" class="container">
+
+  <div id="successPost" class="alert alert-info" role="alert">
+    <h4 class="alert-heading">Success!!</h4>
+    <p>Your Job is posted successfully..!</p>
+    <hr>
+    <p class="mb-0">Your contact email will be shared with registered users to apply to your Job</p>
+  </div>
+
+  <br>
+  <div class="row mr-2 ml-2">
+    <div class="card shadow rounded col-sm-11 col-md-12 col-lg-8 bg-dark text-white " style="margin:auto;padding:auto;">
+      <div class="card-body">
+        <div class="form-wrap">
+          <br>
+          <h2 class="text-center">Post A Job</h2>
+          <br>
+
+          {{#each errors}}
+            <div class="error">
+              <p>{{text}}</p>
+            </div>
+          {{/each}}
+
+          <br>
+          <form action="/api/postjob" method="POST">
+            <div class="input-group mb-3 row">
+              <label for="role" class="col-sm-3" style="font-size:large;">Job Role</label>
+              <input type="text" name="role" id="role" class="form-control col-sm-9 ml-2 rounded"
+                placeholder="Front end developer, Software developer" maxlength="100" value={{role}}> 
+            </div>
+
+            
+            <div class="input-group mb-3 row">
+              <label for="description" class="col-sm-3" style="font-size:large;">Description</label>
+              <textarea name="description" id="description" class="form-control col-sm-9 ml-2 rounded" rows="5"
+                placeholder="Job Description here" maxlength="1000" value={{description}}></textarea>
+            </div>
+
+            <div class="input-group mb-3 row">
+              <label for="technology" class="col-sm-3" style="font-size:large;">Technology</label>
+              <input type="text" name="technology" id="technology" class="form-control col-sm-9 ml-2 rounded"
+                placeholder="eg. javascript, react, PHP" maxlength="100" value={{technology}}>
+            </div>
+
+            <div class="input-group mb-3 row">
+              <label for="company" class="col-sm-3" style="font-size:large;">Company</label>
+              <input type="text" name="company" id="company" class="form-control col-sm-9 ml-2 rounded"
+                placeholder="Company name here" value={{company}}>
+            </div>
+
+            <div class="dropdown mb-3 row">
+              <label for="jobtype" class="col-sm-3" style="font-size:large;">Job Type:</label>
+              <select id="jobtype" name="jobtype" class="col-sm-3 ml-2 rounded" value={{jobtype}}>
+                <option value="full-time">Full-Time</option>
+                <option value="part-time">Part-Time</option>
+                <option value="contract">Contract</option>
+              </select>
+            </div>
+
+            <div class="input-group mb-3 row">
+              <label for="salary" class="col-sm-3" style="font-size:large;">Salary</label>
+              <input type="salary" name="salary" id="salary" class="form-control col-sm-9 ml-2 rounded"
+                placeholder="Enter salary" value={{salary}}>
+            </div>
+
+            <div class="input-group mb-3 row">
+              <label for="joblocation" class="col-sm-3" style="font-size:large;">Job Location</label>
+              <input type="joblocation" name="joblocation" id="joblocation" class="form-control col-sm-9 ml-2 rounded"
+                placeholder="Enter Job location" value={{joblocation}}>
+            </div>
+
+            <div class="input-group row">
+              <label for="contact" class="col-sm-3" style="font-size:large;">Contact Email</label>
+              <input type="email" name="contact" id="contact" class="form-control col-sm-9 ml-2 rounded"
+                placeholder="Enter an email" value={{contact}}>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" id="postjob" class="btn btn-lg btn-info mb-3 mt-3 post-job">Submit</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
+  <!--paragraph of footer-->
+  <p>
+    &copy; Job Finder
+  </p>
+</footer>
+
+<script src="/js/postjob.js"></script>
