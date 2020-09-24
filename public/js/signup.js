@@ -1,15 +1,16 @@
-$(document).ready(() => {
+$(() => {
   // Getting references to our form and input
   const signUpForm = $("form.signup");
-  const firstName = $("input#firstname");
-  const lastName = $("input#lastname");
-  const emailInput = $("input#email-input");
-  const passwordInput = $("input#password-input");
-  const confirmPasswodInput = $("input#confirmPassword-input");
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", event => {
     event.preventDefault();
+    const firstName = $("input#firstname");
+    const lastName = $("input#lastname");
+    const emailInput = $("input#email-input");
+    const passwordInput = $("input#password-input");
+    const confirmPasswodInput = $("input#confirmPassword-input");
+
     const userData = {
       firstname: firstName.val().trim(),
       lastname: lastName.val().trim(),
@@ -50,22 +51,25 @@ $(document).ready(() => {
       userData.firstname,
       userData.lastname,
       userData.email,
-      userData.password
+      userData.password,
+      userData.confirmPassword
     );
     firstName.val("");
     lastName.val("");
     emailInput.val("");
     passwordInput.val("");
+    confirmPasswodInput.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(firstname, lastname, email, password) {
+  function signUpUser(firstname, lastname, email, password, confirmpassword) {
     $.post("/api/signup", {
       firstname: firstname,
       lastname: lastname,
       email: email,
-      password: password
+      password: password,
+      confirmpassword: confirmpassword
     })
       .then(() => {
         window.location.replace("/");
