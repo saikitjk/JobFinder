@@ -11,7 +11,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        is: /^[a-z][a-z\s]*$/,
         len: [1, 30]
         // isAlpha: {
         //   msg: "Name should only contain letters"
