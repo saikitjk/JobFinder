@@ -62,9 +62,15 @@ module.exports = function(app) {
         // res.json(jobsData);
         console.log("\n\nSearched data : " + JSON.stringify(jobsData));
         
-        // render 'jobsearch' page by providing handlebars object as data from db   
-        res.render("jobsearch",{
-          job : jobsData });
+        if(jobsData.length > 0){
+          // render 'jobsearch' page by providing handlebars object as data from db   
+          res.render("jobsearch",{
+            job : jobsData });
+        }
+        else{
+          res.render("error");
+        }
+       
       })
       .catch(function(error) {
         console.log(error);

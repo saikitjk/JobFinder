@@ -1,0 +1,75 @@
+<div id="noJobs"></div>
+<div id="jobListEmpty">
+  <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
+
+    <span class="navbar-brand mb-0 h2 text-white">Job Finder</span>
+
+
+    <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarNav" style="font-size:larger;">
+
+      <ul class="navbar-nav ml-auto ">
+        <!-- Links of navbar -->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/postjob">Post a Job</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/api/jobs">All jobs</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link text-white" href="/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+  <br><br>
+
+
+  <div class="container mb-3">
+
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+
+      <div class="col-md-8">
+        <form class="input-group mb-3" id="searchForm">
+          <input type="text" class="form-control" id="searchInput" placeholder="Search role, technology or company..">
+          <button type="submit" value="Search" id="searchJob"
+            class="btn btn-md btn-info align-items-center">Search</button>
+        </form>
+      </div>
+
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+  <div class="row mr-2 ml-2" id="jobs">
+    <div class="col-md-2"></div>
+      
+      <div class="col-md-10 col-lg-8 text-center">
+
+        <h2 class="text-info">Oops...No Jobs available!</h2>
+      </div>
+  
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>
+</div>
+
+<footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
+  <p>
+    &copy; Job Finder
+  </p>
+</footer>
+</div>
+<script src="/js/jobsearch.js"></script>
