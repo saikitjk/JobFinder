@@ -25,7 +25,9 @@ The user will land on the login page, if the user doesn't have existing account,
 
 link will navigate to sign up page to create free account. After signing up the user can able to
 
-search their desire job if their are seeking a Job or post a Job If their are recruiters.
+see all the jobs that is loaded in the app or search their desire job if their are seeking a Job
+
+or post a Job If their are recruiters.
 
 For security purpose the use user can logout.
 
