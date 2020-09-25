@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable prefer-const */
 /* eslint-disable prettier/prettier */
 /* eslint-disable prefer-arrow-callback */
@@ -9,14 +10,22 @@ module.exports = function(app) {
   // GET route for getting all of the jobs
   app.get("/api/jobs/", function(req, res) {
     db.Jobs.findAll({}).then(function(jobsData) {
-      res.json(jobsData);
+
+      // render 'alljobs' page by providing handlebars object as data from db
+      res.render("alljobs", {
+        job : jobsData });
     });
   });
 
   // GET route for getting search results for specific keyword
   app.get("/api/jobs/:userSearch", function(req, res) {
+    
+    // Fetch search value from request parameters
     const searchValue = req.params.userSearch;
-    console.log("Search Value : "+searchValue);
+    
+    console.log("\n\nSearch Value : "+searchValue);
+    
+    // Find all jobs that matches search value
     db.Jobs.findAll({
       where: { 
         [Op.or]: [
@@ -49,7 +58,13 @@ module.exports = function(app) {
       }
     })
       .then(function(jobsData) {
-        res.json(jobsData);
+        
+        // res.json(jobsData);
+        console.log("\n\nSearched data : " + JSON.stringify(jobsData));
+        
+        // render 'jobsearch' page by providing handlebars object as data from db   
+        res.render("jobsearch",{
+          job : jobsData });
       })
       .catch(function(error) {
         console.log(error);
@@ -59,7 +74,7 @@ module.exports = function(app) {
   // POST route for saving a new job
   app.post("/api/postjob", function(req, res) {
     
-    console.log("Post Job: "+req.body);
+    // console.log("Post Job: "+req.body);
 
     let {
       role,
@@ -72,15 +87,18 @@ module.exports = function(app) {
       contact
     } = req.body;
 
-    // Make lowercase
-    role = role.toLowerCase();
+    role=uppercase(role);
+    
     // Make lowercase and remove space after comma
     technology = technology.toLowerCase().replace(/,[ ]+/g, ",");
+    
     // Make lowercase
     company = company.toLowerCase().replace(/,[ ]+/g, ",");
-
+    company=uppercase(company);
+    
     // Make lowercase and remove space after comma
     joblocation = joblocation.toLowerCase().replace(/,[ ]+/g, ",");
+    joblocation=uppercase(joblocation);
 
     db.Jobs.create({
       role: role,
@@ -94,8 +112,7 @@ module.exports = function(app) {
       //Add userId foreign key here
     // eslint-disable-next-line no-unused-vars
     }).then(function(dbJob) {
-      // console.log("Job Inserted: " + dbJob);
-      // res.json(dbJob);
+      console.log("\n\nJob Inserted: " + dbJob);
       res.redirect("/jobsearch");
     })
       .catch(function(error) {
@@ -103,3 +120,8 @@ module.exports = function(app) {
       });
   });
 };
+
+function uppercase(string)
+{
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}

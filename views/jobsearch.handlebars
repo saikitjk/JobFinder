@@ -1,5 +1,6 @@
-
-<nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
+<div id="jobSearchPageId"></div>
+<div id="jobList">
+  <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
 
     <span class="navbar-brand mb-0 h2 text-white">Job Finder</span>
 
@@ -38,9 +39,10 @@
       </div>
 
       <div class="col-md-8">
-        <form class="input-group mb-3">
+        <form class="input-group mb-3" id="searchForm">
           <input type="text" class="form-control" id="searchInput" placeholder="Search role, technology or company..">
-          <button type="submit" value="Search" class="btn btn-md btn-info align-items-center">Search</button>
+          <button type="submit" value="Search" id="searchJob"
+            class="btn btn-md btn-info align-items-center">Search</button>
         </form>
       </div>
 
@@ -51,43 +53,45 @@
 
   <br><br>
   <div class="row mr-2 ml-2" id="jobs">
-    <div class="col-md-1">
-    </div>
-    
-    {{#each job}}
-    <div class=" card shadow rounded col-sm-10 col-md-10 col-lg-8 bg-dark text-white greenborder" style="margin:auto;padding:auto;">
-      <div class="card-body">
-           <div class="row">
-          
-            <h4 class="ml-3">{{role}}</h4> <p class= " ml-3"><span class="text-info">{{jobtype}}</span></p>
-           </div>
-          <p><strong>{{company}}</strong></p> 
-          
-          <p>Description : <span class="text-info">{{description}}</span></p>
+    <div class="col-md-2"></div>
+      
+      <div class="col-md-10 col-lg-8 align-items-center">
+        {{#each job}}
+        <div class=" card shadow rounded bg-dark text-white greenborder mb-4" style="margin:auto;padding:auto;">
+          <div class="card-body">
+            <div class="row">
 
-          <p>Salary :  <span class="text-info">{{Salary}}</span></p>
-          <p>Job Location : <span class="text-info">{{joblocation}}</span></p>
-         
-          <div class="tech">
-            <p>Technologies Needed: <span class="text-info">{{technologies}}</span></p>
+              <h4 class="ml-3">{{this.role}}</h4>
+              <p class=" ml-3"><span class="text-info">{{jobtype}}</span></p>
+            </div>
+            <p class="mb-1"><strong>{{this.company}}</strong></p>
+
+            <p class="mb-1">Description : <span class="text-info">{{this.description}}</span></p>
+            <p class="mb-1">Job Location : <span class="text-info">{{this.joblocation}}</span></p>
+            <p class="mb-1">Salary : <span class="text-info">{{this.salary}}</span></p>
+
+            <div class="tech">
+              <p class="mb-1">Technologies Needed: <span class="text-info">{{this.technology}}</span></p>
+            </div>
+            <div>
+              <a href="mailto:{{this.contact}}" class="btn btn-md btn-info mb-2">Contact</a>
+            </div>
+
           </div>
-          <div>
-            <a href="mailto:{{contact_email}}" class="btn btn-md btn-info mb-2">Contact</a>
-          </div>
-       
+        </div>
+        {{/each}}
       </div>
-    </div>
-     {{/each}}
-
-    <div class="col-sm-1 col-md-1">
+  
+    <div class="col-md-2">
     </div>
   </div>
-  </div>
-  </div>
+</div>
+</div>
 
-  <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
-    <p>
-       &copy; Job Finder
-   </p>
- </footer>
-  <script src="/js/jobsearch.js"></script>
+<footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
+  <p>
+    &copy; Job Finder
+  </p>
+</footer>
+</div>
+<script src="/js/jobsearch.js"></script>
