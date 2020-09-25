@@ -4,6 +4,7 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
+const flash = require('express-flash');
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
@@ -20,6 +21,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 // Set Handlebars.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
