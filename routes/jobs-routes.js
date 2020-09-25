@@ -9,7 +9,10 @@ module.exports = function(app) {
   // GET route for getting all of the jobs
   app.get("/api/jobs/", function(req, res) {
     db.Jobs.findAll({}).then(function(jobsData) {
-      res.json(jobsData);
+
+      // render 'alljobs' page by providing handlebars object as data from db
+      res.render("alljobs", {
+        job : jobsData });
     });
   });
 
