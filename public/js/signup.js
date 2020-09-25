@@ -3,7 +3,7 @@ $(() => {
   const signUpForm = $("form.signup");
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", (event) => {
+  signUpForm.on("submit", event => {
     event.preventDefault();
     const firstName = $("input#firstname");
     const lastName = $("input#lastname");
@@ -16,7 +16,7 @@ $(() => {
       lastname: lastName.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
-      confirmPassword: confirmPasswodInput.val().trim(),
+      confirmPassword: confirmPasswodInput.val().trim()
     };
 
     if (!userData.firstname) {
