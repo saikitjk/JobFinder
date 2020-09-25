@@ -58,6 +58,7 @@ module.exports = function(sequelize, DataTypes) {
     contact: {
       type: DataTypes.STRING,
       allowNull: false,
+      isUnique: false,
       validate: {
         isEmail: {
           msg: "Please enter a valid address"

@@ -84,7 +84,8 @@ module.exports = function(app) {
       jobtype,
       salary,
       joblocation,
-      contact
+      contact,
+      userId
     } = req.body;
 
     role=uppercase(role);
@@ -108,8 +109,9 @@ module.exports = function(app) {
       jobtype: jobtype,
       salary: salary,
       joblocation: joblocation,
-      contact: contact
-      //Add userId foreign key here
+      contact: contact,
+      userId: userId
+      
     // eslint-disable-next-line no-unused-vars
     }).then(function(dbJob) {
       console.log("\n\nJob Inserted: " + dbJob);
