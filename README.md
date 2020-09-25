@@ -1,12 +1,33 @@
-## Project-2 : Job Finder
+# Project-2 : Job Finder
 
-Team:
+# Team Members :
 * Pratyusha     : Fontend & Backend 
 * Gauri Khandke : Backend & Backend 
-* Robeil        : Frontend          
+* Robeil Aregawi: Frontend          
 * Jason Kwong   : Backend & Backend 
-* Baldeep Kang  : Backend & Backend 
+* Baldeep Kang  : Backend & Backend  
 
+# User Story
+
+As a Full Stuck Web Developer who is looking and applying up to 10 Application per day.
+
+We decide to make it simply and effective by providing this web site. 
+
+This website will provide you all the Jobs that you are looking for according to your input.
+
+This app is created to give service to the job seekers who is looking for their dream Jobs and 
+
+for the recruiters to post their Jobs and to connect with their future employees.
+
+#  Description
+
+The user will land on the login page, if the user doesn't have existing account, the sign up 
+
+link will navigate to sign up page to create free account. After signing up the user can able to
+
+search their desire job if their are seeking a Job or post a Job If their are recruiters.
+
+For security purpose the use user can logout.
 
 
 * ![2020-09-23 (10)](https://user-images.githubusercontent.com/65261399/94196230-ed544c00-fe68-11ea-80d4-d8eea1c86aef.png)
@@ -17,15 +38,7 @@ Team:
 
 * ![2020-09-24 (3)](https://user-images.githubusercontent.com/65261399/94197887-46bd7a80-fe6b-11ea-835b-ac17e6d9226b.png)
 
-
- # User Story
-
-This Website create to simplify finding a Job.
-
-
-
-
-## Tools Used:
+# Tools Used:
 
 * HTML
 * CSS
@@ -38,47 +51,59 @@ This Website create to simplify finding a Job.
 * Handlebars
 * bootstrap
 
-# User Criteria:
+# dependencies used :
 
-GIVEN The glass is desktop or mobile,
+- bcryptjs
+- dotenv
+- express
+- express-handlebars
+- handlebars/allow-prototype-access
+- express-session
+- mysql2
+- passport
+- passport-local
+- sequelize
 
-​WHEN The user interacts with the app
+# dev Dependencies used :
 
-THEN The pages are responsive.
+- chai
+- chai-http
+- cross-env
+- eslint
+- eslint-config-prettier
+- eslint-plugin-prettier
+- mocha
+- prettier
 
-## To Job seekers
+# Future Development:
 
-GIVEN The user  lands on the page (login page),
+This app will improved:
 
-THEN THE user can  login or sign up if don't have exist account
+- To be able upload their resume in order to get recognition by the recruiters.
 
-WHEN THE user sign up will direct to login page to login
+- To be able to Create their Profile.
 
-THEN THE user will direct to search job page and the searched result will display in the page.
+- Able to get notification from the recruiters.
 
-THE USER can logout
+- Shows who visit portfolio.
 
-## To Post Jobs
+# Testing 
 
-GIVEN The user lands on the page (login page),
+The webpage is fully responsive, and we invite you to try resizing your browser, creating new account , login and logout your created account!
+ 
+# Installation
 
-THEN THE user can  login or sign up if don't have exist account
+The website is currently hosted at  https://uw-jobfinder.herokuapp.com/
 
-WHEN THE user sign up will direct to login page to login
+# License 
 
-THEN THE user will direct to post job page for posting new Jobs.
+MIT License
 
-THE USER can logout
+Copyright (c) [2020]
 
-## Future Development:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-1 Ability to upload resume in order to get recognition by the recruiters.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-2 Create user portfolio.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-3 Able to get Notification from the recruiters.
-
-4 Shows who visit portfolio.
-
-
-## Deployed link on Heroku: https://uw-jobfinder.herokuapp.com/
