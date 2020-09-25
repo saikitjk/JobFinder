@@ -20,7 +20,7 @@ module.exports = function(app) {
     // If the user already has an account send them to the login page
     if (req.user) {
       //
-      res.redirect("/");
+      // res.redirect("/");
       res.render("index");
     }
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
@@ -37,5 +37,9 @@ module.exports = function(app) {
   app.get("/postjob", (req, res) => {
     res.render("postjob");
     // res.sendFile(path.join(__dirname, "../public/postjob.html"));
+  });
+
+  app.get("/alljobs", (req, res) => {
+    res.render("alljobs");
   });
 };
