@@ -7,39 +7,32 @@ const path = require("path");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
+  // Load login page when application starts
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.render("jobsearch");
     }
     res.render("index");
-    // res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
+  // Render sign up page
   app.get("/signup", (req, res) => {
     // If the user already has an account send them to the login page
     if (req.user) {
-      //
-      // res.redirect("/");
       res.render("index");
     }
-    // res.sendFile(path.join(__dirname, "../public/signup.html"));
     res.render("signup");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/jobsearch", isAuthenticated, (req, res) => {
-    // res.sendFile(path.join(__dirname, "../public/members.html"));
     res.render("jobsearch");
   });
 
+  // Render Post job page
   app.get("/postjob", (req, res) => {
     res.render("postjob");
-    // res.sendFile(path.join(__dirname, "../public/postjob.html"));
-  });
-
-  app.get("/alljobs", (req, res) => {
-    res.render("alljobs");
   });
 };

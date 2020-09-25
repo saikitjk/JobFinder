@@ -10,7 +10,7 @@ module.exports = function(app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id,
+      id: req.user.id
     });
   });
 
@@ -20,24 +20,27 @@ module.exports = function(app) {
   app.post("/api/signup", (req, res) => {
     db.User.findOne({
       where: {
-        email: req.body.email,
-      },
-    }).then((dbUser) => {
+        email: req.body.email
+      }
+    }).then(dbUser => {
+      // If user with email id already exists
       if (dbUser) {
         res.status(400).json("This email has already been taken.");
         return;
       }
       if (!dbUser) {
+        // Insert user data into User model
         db.User.create({
           firstname: req.body.firstname,
           lastname: req.body.lastname,
           email: req.body.email,
-          password: req.body.password,
+          password: req.body.password
         })
           .then(() => {
+            // When user successfully signed up, render login page
             res.render("index");
           })
-          .catch((err) => {
+          .catch(err => {
             res.status(401).json(err);
           });
       }
@@ -60,7 +63,7 @@ module.exports = function(app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id,
+        id: req.user.id
       });
     }
   });
