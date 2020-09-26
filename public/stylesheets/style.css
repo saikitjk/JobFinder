@@ -1,13 +1,23 @@
 
  body {
   background-color:#f2f2f2;
-  margin-bottom:100px;
-  /* background-image: url("/images/coder.jpg");
-  background-repeat: no-repeat;
-  background-position: center; */
-  /* background-size: cover; */
-
 }
+
+.logo{
+   font-family: 'Bungee Shade', cursive;
+   font-size: 25px;
+}
+
+.landing {
+  background: url('/images/coder.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+ 
+
 .greenborder{
   border-bottom-style:solid !important ;
   border-width:6px;

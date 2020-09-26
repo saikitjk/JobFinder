@@ -1,8 +1,8 @@
-<div id="jobSearchPageId"></div>
+<div id="jobSearchPageId" ></div>
 <div id="jobList">
   <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
 
-    <span class="navbar-brand mb-0 h2 text-white">Job Finder</span>
+    <span class="navbar-brand mb-0 h2 text-white logo">Job Finder</span>
 
 
     <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -10,10 +10,10 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse " id="navbarNav" style="font-size:larger;">
+    <div class="collapse navbar-collapse " id="navbarNav">
 
       <ul class="navbar-nav ml-auto ">
-       
+
         <li class="nav-item">
           <a class="nav-link text-white" href="/api/jobs">All Jobs</a>
         </li>
@@ -44,7 +44,7 @@
 
       <div class="col-md-8">
         <form class="input-group mb-3" id="searchForm">
-          <input type="text" class="form-control" id="searchInput" placeholder="Search role, technology or company..">
+          <input type="text" class="form-control" id="searchInput" placeholder="Search role, technology, company or job location..">
           <button type="submit" value="Search" id="searchJob"
             class="btn btn-md btn-info align-items-center">Search</button>
         </form>
@@ -58,44 +58,42 @@
   <br><br>
   <div class="row mr-2 ml-2" id="jobs">
     <div class="col-md-2"></div>
-      
-      <div class="col-md-10 col-lg-8 align-items-center">
-        {{#each job}}
-        <div class=" card shadow rounded bg-dark text-white greenborder mb-4" style="margin:auto;padding:auto;">
-          <div class="card-body">
-            <div class="row">
 
-              <h4 class="ml-3">{{this.role}}</h4>
-              <p class=" ml-3"><span class="text-info">{{jobtype}}</span></p>
-            </div>
-            <p class="mb-1"><strong>{{this.company}}</strong></p>
+    <div class="col-md-8 col-lg-8 align-items-center">
+      {{#each job}}
+      <div class=" card shadow rounded bg-dark text-white greenborder mb-4" style="margin:auto;padding:auto;">
+        <div class="card-body">
+          <div class="row">
 
-            <p class="mb-1">Description : <span class="text-info">{{this.description}}</span></p>
-            <p class="mb-1">Job Location : <span class="text-info">{{this.joblocation}}</span></p>
-            <p class="mb-1">Salary : <span class="text-info">{{this.salary}}</span></p>
-
-            <div class="tech">
-              <p class="mb-1">Technologies Needed: <span class="text-info">{{this.technology}}</span></p>
-            </div>
-            <div>
-              <a href="mailto:{{this.contact}}" class="btn btn-md btn-info mb-2">Contact</a>
-            </div>
-
+            <h4 class="ml-3">{{this.role}}</h4>
+            <p class=" ml-3"><span class="text-info">{{jobtype}}</span></p>
           </div>
+          <p class="mb-1"><strong>{{this.company}}</strong></p>
+
+          <p class="mb-1">Description : <span class="text-info">{{this.description}}</span></p>
+          <p class="mb-1">Job Location : <span class="text-info">{{this.joblocation}}</span></p>
+          <p class="mb-1">Salary : <span class="text-info">{{this.salary}}</span></p>
+
+          <div class="tech">
+            <p class="mb-1">Technologies Needed: <span class="text-info">{{this.technology}}</span></p>
+          </div>
+          <div>
+            <a href="mailto:{{this.contact}}" class="btn btn-md btn-info mb-2 mt-1">Contact</a>
+          </div>
+
         </div>
-        {{/each}}
       </div>
-  
-    <div class="col-md-2">
+      {{/each}}
     </div>
+
+    <div class="col-md-2"></div>
   </div>
 </div>
 </div>
-
-<footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
+{{!-- <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
   <p>
     &copy; Job Finder
   </p>
-</footer>
-</div>
+</footer> --}}
+
 <script src="/js/jobsearch.js"></script>

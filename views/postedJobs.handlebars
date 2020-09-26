@@ -4,7 +4,7 @@
 <div id="postedData">
   <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
 
-    <span class="navbar-brand mb-0 h2 text-white">Job Finder</span>
+    <span class="navbar-brand mb-0 h2 text-white logo">Job Finder</span>
 
 
     <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -12,7 +12,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse " id="navbarNav" style="font-size:larger;">
+    <div class="collapse navbar-collapse " id="navbarNav">
 
       <ul class="navbar-nav ml-auto ">
         <!-- Links of navbar -->
@@ -41,11 +41,11 @@
 
   <div class="container mb-3">
     <div class="row mr-2 ml-2" id="jobs">
-      <div class="col-md-1">
+      <div class="col-md-2">
       </div>
 
-      <div class="col-md-10 col-lg-8">
-        <h2 class="text-center">Posted Jobs</h2>
+      <div class="col-md-8 col-lg-8">
+        <h2 class="text-center text-info">Posted Jobs</h2>
         <br>
         {{#each job}}
         {{!-- {{> jobcard}} --}}
@@ -69,7 +69,7 @@
               <a href="mailto:{{this.contact}}" class="btn btn-md btn-info mb-2">Contact</a>
             </div> --}}
             <div>
-              <button class="btn btn-md btn-info mb-2 mt-2" data-id={{this.id}}>Delete</button>
+              <button class="btn btn-md btn-info mb-2 mt-1" data-id={{this.id}}>Delete</button>
             </div>
           </div>
         </div>
@@ -78,45 +78,15 @@
 
     </div>
 
-    <div class="col-md-1">
+    <div class="col-md-2">
     </div>
   </div>
 
-  <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
+  {{!-- <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
     <p>
       &copy; Job Finder
     </p>
-  </footer>
+  </footer> --}}
 </div>
 <script src="/js/postedjobs.js"></script>
-{{!-- <script type="text/javascript">
-  $(document).ready(function () {
 
-    // compile our template
-    var template = Handlebars.compile($("#job-template").html());
-
-    // add the person partial
-    Handlebars.registerPartial("jobcard", $("#job-partial").html());
-
-    const userId = localStorage.getItem("userId");
-    //Send the GET request to server.
-    $.ajax("/api/postedjobs/" + userId, {
-      type: "GET",
-      userId: userId
-    })
-      .then(searchedData => {
-        console.log("Searched successfully!");
-        console.log("Searched Data: " + JSON.stringify(searchedData));
-
-        //let source = $(".card").html();
-        // let template = Handlebars.compile(source);
-        //let html = template(searchedData);
-        // $(".card").innerHTML = html;
-
-        $('#userJobs').html(template(searchedData));
-      })
-      .catch(function (error) {
-        console.log("got an error " + error);
-      });
-  });
-</script> --}}
