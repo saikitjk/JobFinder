@@ -1,39 +1,36 @@
 <script type="text/javascript" src="js/login.js"></script>
-<div style="background-image: url(" /images/coder.jpg");">
+<div class="landing">
+  
   <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
 
-    <span class="navbar-brand ml-0 mb-0 h2 text-white" style="font-size:x-large;">Job Finder</span>
+     <span class="navbar-brand ml-0 mb-0 h2 text-white logo ">Job Finder</span> 
 
   </nav>
-  <br><br>
+
   <div class="container">
+    <br><br>
     <div class="row mr-2 ml-2">
-      <div class="card shadow rounded col-sm-11 col-md-12 col-lg-8 bg-dark text-white greenborder"
-        style="margin:auto;padding:auto;">
-        <div class="card-body">
-          <h2 class="text-center">Login Form</h2>
-          <form class="login">
-            <div class="form-group">
-              <label for="exampleInputEmail1" style="font-size:large;">Email address</label>
-              <input type="email" class="form-control" id="email-input" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1" style="font-size:large;">Password</label>
-              <input type="password" class="form-control" id="password-input" placeholder="Password">
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-lg btn-info mb-3 mt-3">Login</button>
-            </div>
-          </form>
-          <p style="font-size:larger;">Or sign up <a href="/signup">here</a></p>
-        </div>
+
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h2 class="text-center text-info">Login</h2>
+        <form class="login">
+          <div class="form-group">
+            <label for="exampleInputEmail1" class="text-white">Email address</label>
+            <input type="email" class="form-control" id="email-input" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1" class="text-white">Password</label>
+            <input type="password" class="form-control" id="password-input" placeholder="Password">
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-lg btn-info mb-1 mt-1">Login</button>
+            <p class="mb-0 text-white" style="font-size:larger;">Or sign up <a href="/signup">here</a></p>
+          </div>
+        </form>
+
       </div>
+      <div class="col-md-3"></div>
     </div>
   </div>
-  </div>
-  <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
-    <!--paragraph of footer-->
-    <p>
-      &copy; Job Finder
-    </p>
-  </footer>
+</div>
