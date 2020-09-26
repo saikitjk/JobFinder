@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "asdf@123",
+    "password": null,
     "database": "jobfinder_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "pratyushakamal",
+    "password": null,
     "database": "jobfinder_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
