@@ -5,12 +5,20 @@ $(function(){
   $(".alert").hide();
   $(".alertrole").hide();
 
+  // Empty field validation div
+  const err = document.querySelector("#err");
+
+  // Salary validation div
+  const salaryErr = document.querySelector("#salaryErr");
+  
+  // Hide validation divs
+  $("#err").hide();
+  $("#salaryErr").hide();
+  
   // On clicking 'submit' button 
   $("#postjob").on("submit", event => {
     
     event.preventDefault();
-    
-    // console.log("in postjob function");
     
     // Fetch post job form values
     const role = $("#role").val().trim();
@@ -21,34 +29,22 @@ $(function(){
     const salary = $("#salary").val().trim();
     const joblocation = $("#joblocation").val().trim();
     const contact = $("#contact").val().trim();
-    
-    // console.log("Posted Job : "+ role, description, technology, company, jobtype);
-    
+
     // Empty field validations
-    if (role === "") {
-      return;
-    }
-    if (description === "") {
-      return;
-    }
-    if (technology === "") {
-      return;
-    }
-    if (company === "") {
-      return;
-    }
-    if (salary === "") {
-      return;
-    }
-    if (joblocation === "") {
-      return;
-    }
-    if (contact === "") {
+    if(role === "" || description === "" || technology === "" || company === "" || salary === "" || joblocation === "" || contact === ""){
+      $("#err").show();
+      $("#err").text("*Fields cannot be empty");
       return;
     }
 
+    // Salary validation : If salary is not number
+    if(isNaN(salary)){
+      $("#salaryErr").show();
+      $("#salaryErr").text("*Invalid Salary");
+    }
+     
+    // Get user Id from local storage
     const userId = localStorage.getItem("userId");
-    // console.log("UserId : "+userId);
 
     // Create object of job values from user
     const newJob = {
@@ -69,6 +65,10 @@ $(function(){
       data: newJob
     }).then(() => {
       // console.log("Added new Job!");
+      // Hide validation divs
+      $("#err").hide();
+      $("#salaryErr").hide();
+
       // Show success message after posting a job
       $(".alert").show();
       $(".alert").alert();
@@ -76,5 +76,5 @@ $(function(){
       console.log("got an error " + error);
     });
 
-  });
+  });  
 });
