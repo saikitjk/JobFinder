@@ -1,42 +1,42 @@
-
 <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
-    
-    <span class="navbar-brand mb-0 h2 text-white logo">Job Finder</span>
 
-    {{!-- Collapsable button --}}
-    <button class="navbar-toggler text-white bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <span class="navbar-brand mb-0 h2 text-white logo">Job Finder</span>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
+  {{!-- Collapsable button --}}
+  <button class="navbar-toggler text-white bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-      <ul class="navbar-nav ml-auto ">
-         <li class="nav-item">
-          <a class="nav-link text-white" href="/api/jobs">All Jobs</a>
-        </li>
+  <div class="collapse navbar-collapse" id="navbarNav">
 
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/jobsearch">Job Search</a>
-        </li>
+    <ul class="navbar-nav ml-auto ">
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/api/jobs">All Jobs</a>
+      </li>
 
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/postedjobs">Posted Jobs</a>
-        </li>
- 
-        <li class="nav-item active">
-          <a class="nav-link text-white" href="/logout">Logout</a>
-        </li>
-      </ul>
-    </div>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/jobsearch">Job Search</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/postedjobs">Posted Jobs</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link text-white" href="/logout">Logout</a>
+      </li>
+    </ul>
+  </div>
 
 </nav>
 
 <br>
 
-<section id="postjob" class="container"> 
+<section id="postjob" class="container">
   <div class="row mr-2 ml-2">
-    <div class="card shadow rounded col-sm-11 col-md-12 col-lg-8 bg-dark text-white greenborder" style="margin:auto;padding:auto;">
+    <div class="card shadow rounded col-sm-11 col-md-12 col-lg-8 bg-dark text-white greenborder"
+      style="margin:auto;padding:auto;">
       <div class="card-body">
         <div class="form-wrap">
           <br>
@@ -44,10 +44,19 @@
           <br>
 
           {{#each errors}}
-            <div class="error">
-              <p>{{text}}</p>
-            </div>
+          <div class="error">
+            <p>{{text}}</p>
+          </div>
           {{/each}}
+
+          {{!-- Row for empty field validation --}}
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 text-center">
+              <p id="err" style="color:red;font-style:italic;"></p>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
 
           <br>
           {{!-- Form to post Job --}}
@@ -55,10 +64,9 @@
             <div class="input-group mb-3 row">
               <label for="role" class="col-sm-3" style="font-size:large;">Job Role</label>
               <input type="text" name="role" id="role" class="form-control col-sm-9 ml-2 rounded"
-                placeholder="Front end developer, Software developer" maxlength="100" value={{role}}> 
+                placeholder="Front end developer, Software developer" maxlength="100" value={{role}}>
             </div>
 
-            
             <div class="input-group mb-3 row">
               <label for="description" class="col-sm-3" style="font-size:large;">Description</label>
               <textarea name="description" id="description" class="form-control col-sm-9 ml-2 rounded" rows="5"
@@ -92,6 +100,15 @@
                 placeholder="Enter salary" value={{salary}}>
             </div>
 
+            {{!-- Row for salary validation --}}
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-6 text-center">
+                <p id="salaryErr" style="color:red;font-style:italic;"></p>
+              </div>
+              <div class="col-md-3s"></div>
+            </div>
+
             <div class="input-group mb-3 row">
               <label for="joblocation" class="col-sm-3" style="font-size:large;">Job Location</label>
               <input type="joblocation" name="joblocation" id="joblocation" class="form-control col-sm-9 ml-2 rounded"
@@ -114,7 +131,7 @@
     </div>
   </div>
   <br>
-  
+
   {{!-- Success alert --}}
   <div id="successPost" class="alert alert-info" role="alert">
     <h4 class="alert-heading">Success!!</h4>
