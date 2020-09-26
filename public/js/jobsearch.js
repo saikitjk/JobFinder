@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 /* eslint-disable no-unused-vars */
 $(() => {
-  // This file just does a GET request to figure out which user is logged in
+  // This GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(data => {
     $(".member-name").text(data.email);
@@ -9,6 +9,7 @@ $(() => {
     localStorage.setItem("userId", data.id);
   });
 
+  // Fetch search keyword from input field
   const searchForm = $("form#searchForm");
 
   // On submit the search job
@@ -21,14 +22,14 @@ $(() => {
       .trim();
     console.log("User Search: " + userSearch);
 
-    //Send the GET request to server.
+    //Send the GET request to server to fetch jobs by keyword.
     $.ajax("/api/jobs/" + userSearch, {
       type: "GET",
       userSearch: userSearch
     })
       .then(searchedData => {
-        console.log("Searched successfully!");
-        console.log("Searched Data: " + searchedData);
+        // console.log("Searched successfully!");
+        // console.log("Searched Data: " + searchedData);
         $("#jobList").empty();
         $("#jobSearchPageId").html(searchedData);
       })

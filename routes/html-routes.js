@@ -36,6 +36,7 @@ module.exports = function(app) {
     res.render("postjob");
   });
 
+  // Render posted jobs handlebars page to show jobs posted by user
   app.get("/postedjobs", (req, res) => {
     res.render("postedJobs");
   });

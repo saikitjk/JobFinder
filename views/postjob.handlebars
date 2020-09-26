@@ -3,8 +3,8 @@
     
     <span class="navbar-brand mb-0 h2 text-white logo">Job Finder</span>
 
-    <!-- Collapsable button -->
-    <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarNav"
+    {{!-- Collapsable button --}}
+    <button class="navbar-toggler text-white bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,7 +12,6 @@
     <div class="collapse navbar-collapse" id="navbarNav">
 
       <ul class="navbar-nav ml-auto ">
-        <!-- Links of navbar -->
          <li class="nav-item">
           <a class="nav-link text-white" href="/api/jobs">All Jobs</a>
         </li>
@@ -31,7 +30,6 @@
       </ul>
     </div>
 
-  <!-- End Nav bar -->
 </nav>
 
 <br>
@@ -52,6 +50,7 @@
           {{/each}}
 
           <br>
+          {{!-- Form to post Job --}}
           <form action="/api/postjob" method="POST">
             <div class="input-group mb-3 row">
               <label for="role" class="col-sm-3" style="font-size:large;">Job Role</label>
@@ -125,12 +124,5 @@
   </div>
 
 </section>
-
-{{!-- <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
-  <!--paragraph of footer-->
-  <p>
-    &copy; Job Finder
-  </p>
-</footer> --}}
 
 <script src="/js/postjob.js"></script>
