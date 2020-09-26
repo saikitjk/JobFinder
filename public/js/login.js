@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow-callback */
 $(() => {
   // Getting references to our form and inputs
   const loginForm = $("form.login");
@@ -33,7 +34,7 @@ $(() => {
         window.location.replace("/jobsearch");
         // If there's an error, log the error
       })
-      .catch(err => {
+      .catch(function(err) {
         console.log(err);
       });
   }

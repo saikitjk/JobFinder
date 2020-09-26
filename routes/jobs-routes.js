@@ -62,9 +62,69 @@ module.exports = function(app) {
         // res.json(jobsData);
         console.log("\n\nSearched data : " + JSON.stringify(jobsData));
         
+        if(jobsData.length > 0){
+          // render 'jobsearch' page by providing handlebars object as data from db   
+          res.render("jobsearch",{
+            job : jobsData });
+        }
+        else{
+          res.render("error");
+        }
+       
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  });
+
+  // GET route for getting all of the jobs user posted
+  //select * from jobs where userid=1
+  app.get("/api/postedjobs/:userId", function(req, res) {
+
+    // Fetch search value from request parameters
+    const userId = req.params.userId;
+     
+    db.Jobs.findAll({
+      where: {
+        userId: userId
+      }
+    }).then(function(postedData) {
+        
+      // res.json(jobsData);
+      console.log("\n\nSearched data : " + JSON.stringify(postedData));
+      
+      if(postedData.length > 0){
         // render 'jobsearch' page by providing handlebars object as data from db   
-        res.render("jobsearch",{
-          job : jobsData });
+        res.render("postedJobs",{
+          job : postedData });
+      }
+      else{
+        res.render("noJobsPosted");
+      }
+     
+    })
+      .catch(function(error) {
+        console.log(error);
+      });
+  });
+
+  // GET route for getting search results for specific keyword
+  app.get("/api/jobs/:deleteJob", function(req, res) {
+    
+    // Fetch search value from request parameters
+    const jobId = req.params.deleteJob;
+    
+    // Find all jobs that matches search value
+    db.Jobs.destroy({
+      where: { 
+        id: jobId
+      }
+    })
+      .then(function(jobsData) {
+        // get all jobs posted of that user and render same page
+        // res.render("error");
+
+       
       })
       .catch(function(error) {
         console.log(error);
@@ -84,7 +144,8 @@ module.exports = function(app) {
       jobtype,
       salary,
       joblocation,
-      contact
+      contact,
+      userId
     } = req.body;
 
     role=uppercase(role);
@@ -108,8 +169,9 @@ module.exports = function(app) {
       jobtype: jobtype,
       salary: salary,
       joblocation: joblocation,
-      contact: contact
-      //Add userId foreign key here
+      contact: contact,
+      userId: userId
+      
     // eslint-disable-next-line no-unused-vars
     }).then(function(dbJob) {
       console.log("\n\nJob Inserted: " + dbJob);

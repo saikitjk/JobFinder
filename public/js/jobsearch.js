@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow-callback */
 /* eslint-disable no-unused-vars */
 $(() => {
   // This file just does a GET request to figure out which user is logged in
@@ -5,6 +6,7 @@ $(() => {
   $.get("/api/user_data").then(data => {
     $(".member-name").text(data.email);
     console.log("User Id : " + data.id);
+    localStorage.setItem("userId", data.id);
   });
 
   const searchForm = $("form#searchForm");
@@ -30,7 +32,7 @@ $(() => {
         $("#jobList").empty();
         $("#jobSearchPageId").html(searchedData);
       })
-      .catch(error => {
+      .catch(function(error) {
         console.log("got an error " + error);
       });
   });

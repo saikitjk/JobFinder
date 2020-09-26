@@ -4,6 +4,7 @@
 $(function(){
   $(".alert").hide();
   $(".alertrole").hide();
+
   // On clicking 'submit' button 
   $("#postjob").on("submit", event => {
     
@@ -46,6 +47,9 @@ $(function(){
       return;
     }
 
+    const userId = localStorage.getItem("userId");
+    console.log("UserId : "+userId);
+
     // Create object of job values from user
     const newJob = {
       role: role,
@@ -55,8 +59,8 @@ $(function(){
       jobtype: jobtype,
       salary: salary,
       joblocation: joblocation,
-      contact: contact
-      // userId:
+      contact: contact,
+      userId: userId
     };
 
     //Send the POST request to server.
@@ -68,7 +72,7 @@ $(function(){
       $(".alert").show();
       $(".alert").alert();
       //location.reload();
-    }).catch(error => {
+    }).catch(function(error) {
       console.log("got an error " + error);
     });
 

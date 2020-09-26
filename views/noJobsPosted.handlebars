@@ -1,5 +1,5 @@
-<div id="jobSearchPageId"></div>
-<div id="jobList">
+<div id="noJobs"></div>
+<div id="jobListEmpty">
   <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
 
     <span class="navbar-brand mb-0 h2 text-white">Job Finder</span>
@@ -13,12 +13,13 @@
     <div class="collapse navbar-collapse " id="navbarNav" style="font-size:larger;">
 
       <ul class="navbar-nav ml-auto ">
-       
+        <!-- Links of navbar -->
+     
         <li class="nav-item">
           <a class="nav-link text-white" href="/api/jobs">All Jobs</a>
         </li>
 
-        <li class="nav-item">
+           <li class="nav-item">
           <a class="nav-link text-white" href="/postjob">Post Job</a>
         </li>
 
@@ -59,31 +60,9 @@
   <div class="row mr-2 ml-2" id="jobs">
     <div class="col-md-2"></div>
       
-      <div class="col-md-10 col-lg-8 align-items-center">
-        {{#each job}}
-        <div class=" card shadow rounded bg-dark text-white greenborder mb-4" style="margin:auto;padding:auto;">
-          <div class="card-body">
-            <div class="row">
+      <div class="col-md-10 col-lg-8 text-center">
 
-              <h4 class="ml-3">{{this.role}}</h4>
-              <p class=" ml-3"><span class="text-info">{{jobtype}}</span></p>
-            </div>
-            <p class="mb-1"><strong>{{this.company}}</strong></p>
-
-            <p class="mb-1">Description : <span class="text-info">{{this.description}}</span></p>
-            <p class="mb-1">Job Location : <span class="text-info">{{this.joblocation}}</span></p>
-            <p class="mb-1">Salary : <span class="text-info">{{this.salary}}</span></p>
-
-            <div class="tech">
-              <p class="mb-1">Technologies Needed: <span class="text-info">{{this.technology}}</span></p>
-            </div>
-            <div>
-              <a href="mailto:{{this.contact}}" class="btn btn-md btn-info mb-2">Contact</a>
-            </div>
-
-          </div>
-        </div>
-        {{/each}}
+        <h2 class="text-info">Oops...No Jobs Posted yet!</h2>
       </div>
   
     <div class="col-md-2">
