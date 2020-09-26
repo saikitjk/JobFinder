@@ -11,6 +11,7 @@ $(() => {
     const passwordInput = $("input#password-input");
     const confirmPasswodInput = $("input#confirmPassword-input");
 
+    // Create user object
     const userData = {
       firstname: firstName.val().trim(),
       lastname: lastName.val().trim(),
@@ -54,6 +55,8 @@ $(() => {
       userData.password,
       userData.confirmPassword
     );
+
+    // Empty imput fields after signup
     firstName.val("");
     lastName.val("");
     emailInput.val("");

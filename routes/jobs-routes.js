@@ -68,6 +68,7 @@ module.exports = function(app) {
             job : jobsData });
         }
         else{
+          // If no jobs available for searched keyword then show 'No Jobs available'
           res.render("error");
         }
        
@@ -84,6 +85,7 @@ module.exports = function(app) {
     // Fetch search value from request parameters
     const userId = req.params.userId;
      
+    // Find all jobs posted by logged in user
     db.Jobs.findAll({
       where: {
         userId: userId
@@ -99,6 +101,7 @@ module.exports = function(app) {
           job : postedData });
       }
       else{
+        // If user has not posted any job so far, show 'No Jobs Posted'
         res.render("noJobsPosted");
       }
      
@@ -122,8 +125,7 @@ module.exports = function(app) {
     })
       .then(function(jobsData) {
         // get all jobs posted of that user and render same page
-        // res.render("postedJobs");
-       
+        // res.render("postedJobs");      
       })
       .catch(function(error) {
         console.log(error);
@@ -160,6 +162,7 @@ module.exports = function(app) {
     joblocation = joblocation.toLowerCase().replace(/,[ ]+/g, ",");
     joblocation=uppercase(joblocation);
 
+    // Insert Job posted by user into database
     db.Jobs.create({
       role: role,
       description: description,
@@ -173,7 +176,7 @@ module.exports = function(app) {
       
     // eslint-disable-next-line no-unused-vars
     }).then(function(dbJob) {
-      console.log("\n\nJob Inserted: " + dbJob);
+      // console.log("\n\nJob Inserted: " + dbJob);
       res.redirect("/jobsearch");
     })
       .catch(function(error) {
@@ -182,6 +185,7 @@ module.exports = function(app) {
   });
 };
 
+// Function to make first letter of word uppercase
 function uppercase(string)
 {
   return string.charAt(0).toUpperCase() + string.slice(1);

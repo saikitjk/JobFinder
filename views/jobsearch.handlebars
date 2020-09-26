@@ -1,10 +1,11 @@
 <div id="jobSearchPageId" ></div>
 <div id="jobList">
+  {{!-- Nav bar --}}
   <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
 
     <span class="navbar-brand mb-0 h2 text-white logo">Job Finder</span>
 
-
+    {{!-- Toggle button --}}
     <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -43,6 +44,7 @@
       </div>
 
       <div class="col-md-8">
+        {{!-- Search bar --}}
         <form class="input-group mb-3" id="searchForm">
           <input type="text" class="form-control" id="searchInput" placeholder="Search role, technology, company or job location..">
           <button type="submit" value="Search" id="searchJob"
@@ -60,6 +62,7 @@
     <div class="col-md-2"></div>
 
     <div class="col-md-8 col-lg-8 align-items-center">
+      {{!-- Job list for searched keyword --}}
       {{#each job}}
       <div class=" card shadow rounded bg-dark text-white greenborder mb-4" style="margin:auto;padding:auto;">
         <div class="card-body">
@@ -90,10 +93,5 @@
   </div>
 </div>
 </div>
-{{!-- <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
-  <p>
-    &copy; Job Finder
-  </p>
-</footer> --}}
 
 <script src="/js/jobsearch.js"></script>

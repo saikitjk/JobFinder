@@ -1,10 +1,12 @@
 <div id="noJobs"></div>
 <div id="jobListEmpty">
+
+  {{!-- Nav bar --}}
   <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
 
     <span class="navbar-brand mb-0 h2 text-white logo">Job Finder</span>
 
-
+    {{!-- Toggle button --}}
     <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,7 +15,6 @@
     <div class="collapse navbar-collapse " id="navbarNav">
 
       <ul class="navbar-nav ml-auto ">
-        <!-- Links of navbar -->
      
         <li class="nav-item">
           <a class="nav-link text-white" href="/api/jobs">All Jobs</a>
@@ -36,7 +37,6 @@
   </nav>
   <br><br>
 
-
   <div class="container mb-3">
 
     <div class="row">
@@ -44,6 +44,7 @@
       </div>
 
       <div class="col-md-8">
+        {{!-- Search bar to search jobs by keyword --}}
         <form class="input-group mb-3" id="searchForm">
           <input type="text" class="form-control" id="searchInput" placeholder="Search role, technology or company..">
           <button type="submit" value="Search" id="searchJob"
@@ -61,7 +62,7 @@
     <div class="col-md-2"></div>
       
       <div class="col-md-10 col-lg-8 text-center">
-
+        {{!-- Display msg, if no jobs available for keyword searched by user --}}
         <h2 class="text-info">Oops...No Jobs available!</h2>
       </div>
   
@@ -71,10 +72,5 @@
 </div>
 </div>
 
-{{!-- <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
-  <p>
-    &copy; Job Finder
-  </p>
-</footer> --}}
 </div>
 <script src="/js/jobsearch.js"></script>

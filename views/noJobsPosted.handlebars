@@ -4,7 +4,7 @@
 
     <span class="navbar-brand mb-0 h2 text-white logo">Job Finder</span>
 
-
+    {{!-- Toggle Button --}}
     <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,6 @@
     <div class="collapse navbar-collapse " id="navbarNav">
 
       <ul class="navbar-nav ml-auto ">
-        <!-- Links of navbar -->
 
         <li class="nav-item">
           <a class="nav-link text-white" href="/api/jobs">All Jobs</a>
@@ -43,17 +42,13 @@
       <div class="col-md-2"></div>
 
       <div class="col-md-10 col-lg-8 text-center">
+        {{!-- Display msg if no job posted by user --}}
         <h2 class="text-info">Oops...No Jobs Posted yet!</h2>
       </div>
 
       <div class="col-md-2"></div>
     </div>
   </div>
-
-  {{!-- <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
-  <p>
-    &copy; Job Finder
-  </p>
-</footer> --}}
+  
 </div>
 <script src="/js/jobsearch.js"></script>

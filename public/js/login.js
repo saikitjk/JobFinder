@@ -14,6 +14,7 @@ $(() => {
       password: passwordInput.val().trim()
     };
 
+    // If email or password is empty, then return
     if (!userData.email || !userData.password) {
       return;
     }

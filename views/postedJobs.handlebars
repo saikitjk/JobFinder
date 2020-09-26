@@ -2,11 +2,12 @@
 <div id="userJobs"></div>
 
 <div id="postedData">
+  {{!-- Nav bar --}}
   <nav class="navbar navbar-expand-md navbar-light bg-dark mb-1">
 
     <span class="navbar-brand mb-0 h2 text-white logo">Job Finder</span>
 
-
+    {{!-- Toggle Button --}}
     <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -15,7 +16,6 @@
     <div class="collapse navbar-collapse " id="navbarNav">
 
       <ul class="navbar-nav ml-auto ">
-        <!-- Links of navbar -->
 
         <li class="nav-item">
           <a class="nav-link text-white" href="/jobsearch">Job Search</a>
@@ -38,7 +38,6 @@
   </nav>
   <br><br>
 
-
   <div class="container mb-3">
     <div class="row mr-2 ml-2" id="jobs">
       <div class="col-md-2">
@@ -47,8 +46,8 @@
       <div class="col-md-8 col-lg-8">
         <h2 class="text-center text-info">Posted Jobs</h2>
         <br>
+        {{!-- List of Jobs posted by user --}}
         {{#each job}}
-        {{!-- {{> jobcard}} --}}
         <div class="eachjob card shadow rounded bg-dark text-white greenborder mb-4">
           <div class="card-body">
             <div class="row">
@@ -65,9 +64,9 @@
             <div class="tech">
               <p class="mb-1">Technologies Needed: <span class="text-info">{{this.technology}}</span></p>
             </div>
-             <div>
+             {{!-- <div>
               <a href="mailto:{{this.contact}}" class="btn btn-md btn-info mb-2">Contact</a>
-            </div>
+            </div> --}}
           </div>
         </div>
         {{/each}}
@@ -79,12 +78,6 @@
     </div>
   </div>
 
-  {{!-- <footer class="footer mt-auto py-2 fixed-bottom text-center bg-dark text-white">
-    <p>
-      &copy; Job Finder
-    </p>
-  </footer> --}}
 </div>
 <script src="/js/postedjobs.js"></script>
-{{!-- <script src="/js/deletejob.js"></script> --}}
 
