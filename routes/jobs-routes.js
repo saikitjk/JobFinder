@@ -122,8 +122,7 @@ module.exports = function(app) {
     })
       .then(function(jobsData) {
         // get all jobs posted of that user and render same page
-        // res.render("error");
-
+        // res.render("postedJobs");
        
       })
       .catch(function(error) {
