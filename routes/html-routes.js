@@ -35,4 +35,8 @@ module.exports = function(app) {
   app.get("/postjob", (req, res) => {
     res.render("postjob");
   });
+
+  app.get("/postedjobs", (req, res) => {
+    res.render("postedJobs");
+  });
 };

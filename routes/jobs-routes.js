@@ -77,6 +77,60 @@ module.exports = function(app) {
       });
   });
 
+  // GET route for getting all of the jobs user posted
+  //select * from jobs where userid=1
+  app.get("/api/postedjobs/:userId", function(req, res) {
+
+    // Fetch search value from request parameters
+    const userId = req.params.userId;
+     
+    db.Jobs.findAll({
+      where: {
+        userId: userId
+      }
+    }).then(function(postedData) {
+        
+      // res.json(jobsData);
+      console.log("\n\nSearched data : " + JSON.stringify(postedData));
+      
+      if(postedData.length > 0){
+        // render 'jobsearch' page by providing handlebars object as data from db   
+        res.render("postedJobs",{
+          job : postedData });
+      }
+      else{
+        res.render("noJobsPosted");
+      }
+     
+    })
+      .catch(function(error) {
+        console.log(error);
+      });
+  });
+
+  // GET route for getting search results for specific keyword
+  app.get("/api/jobs/:deleteJob", function(req, res) {
+    
+    // Fetch search value from request parameters
+    const jobId = req.params.deleteJob;
+    
+    // Find all jobs that matches search value
+    db.Jobs.destroy({
+      where: { 
+        id: jobId
+      }
+    })
+      .then(function(jobsData) {
+        // get all jobs posted of that user and render same page
+        // res.render("error");
+
+       
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  });
+
   // POST route for saving a new job
   app.post("/api/postjob", function(req, res) {
     
