@@ -14,6 +14,8 @@ $(function(){
   // Hide validation divs
   $("#err").hide();
   $("#salaryErr").hide();
+  $("#salaryErr").text("*Invalid Salary");
+  $("#err").text("*Fields cannot be empty");
   
   // On clicking 'submit' button 
   $("#postjob").on("submit", event => {
@@ -30,17 +32,28 @@ $(function(){
     const joblocation = $("#joblocation").val().trim();
     const contact = $("#contact").val().trim();
 
-    // Empty field validations
-    if(role === "" || description === "" || technology === "" || company === "" || salary === "" || joblocation === "" || contact === ""){
-      $("#err").show();
-      $("#err").text("*Fields cannot be empty");
+    // // Empty field validations
+    // if(role === "" || description === "" || technology === "" || company === "" || salary === "" || joblocation === "" || contact === ""){
+    //   $("#err").show();
+    //   $("#salaryErr").hide();
+    //   $("#err").text("*Fields cannot be empty");
+    //   return;
+    // }
+    // Salary validation : If salary is not number
+    if(isNaN(salary) && !(role === "" || description === "" || technology === "" || company === "" || salary === "" || joblocation === "" || contact === "")){    
+      $("#salaryErr").show();
+      $("#err").hide();
       return;
     }
-
-    // Salary validation : If salary is not number
-    if(isNaN(salary)){
+    else if(isNaN(salary) && (role === "" || description === "" || technology === "" || company === "" || salary === "" || joblocation === "" || contact === "")){
       $("#salaryErr").show();
-      $("#salaryErr").text("*Invalid Salary");
+      $("#err").show();
+      return;
+    }
+    else if(!(isNaN(salary)) && (role === "" || description === "" || technology === "" || company === "" || salary === "" || joblocation === "" || contact === "")){
+      $("#salaryErr").hide();
+      $("#err").show();
+      return;
     }
      
     // Get user Id from local storage
@@ -68,6 +81,14 @@ $(function(){
       // Hide validation divs
       $("#err").hide();
       $("#salaryErr").hide();
+
+      role.val("");
+      description.val("");
+      technology.val("");
+      company.val("");
+      salary.val("");
+      joblocation.val("");
+      contact.val("");
 
       // Show success message after posting a job
       $(".alert").show();
