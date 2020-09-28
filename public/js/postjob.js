@@ -82,14 +82,6 @@ $(function(){
       $("#err").hide();
       $("#salaryErr").hide();
 
-      role.val("");
-      description.val("");
-      technology.val("");
-      company.val("");
-      salary.val("");
-      joblocation.val("");
-      contact.val("");
-
       // Show success message after posting a job
       $(".alert").show();
       $(".alert").alert();
