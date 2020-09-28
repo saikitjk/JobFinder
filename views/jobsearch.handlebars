@@ -64,28 +64,7 @@
     <div class="col-md-8 col-lg-8 align-items-center">
       {{!-- Job list for searched keyword --}}
       {{#each job}}
-      <div class=" card shadow rounded bg-dark text-white greenborder mb-4" style="margin:auto;padding:auto;">
-        <div class="card-body">
-          <div class="row">
-
-            <h4 class="ml-3">{{this.role}}</h4>
-            <p class=" ml-3"><span class="text-info">{{jobtype}}</span></p>
-          </div>
-          <p class="mb-1"><strong>{{this.company}}</strong></p>
-
-          <p class="mb-1">Description : <span class="text-info">{{this.description}}</span></p>
-          <p class="mb-1">Job Location : <span class="text-info">{{this.joblocation}}</span></p>
-          <p class="mb-1">Salary : <span class="text-info">{{this.salary}}</span></p>
-
-          <div class="tech">
-            <p class="mb-1">Technologies Needed: <span class="text-info">{{this.technology}}</span></p>
-          </div>
-          <div>
-            <a href="mailto:{{this.contact}}" class="btn btn-md btn-info mb-2 mt-1">Contact</a>
-          </div>
-
-        </div>
-      </div>
+         {{>jobsfinder}}
       {{/each}}
     </div>
 

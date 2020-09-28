@@ -10,6 +10,7 @@ $(document).ready(function() {
     userId: userId
   })
     .then(searchedData => {
+      // rendering the data on to handlebars page
       $("#postedData").empty();
       $("#userJobs").html(searchedData);
     })
